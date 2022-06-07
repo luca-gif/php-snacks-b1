@@ -5,11 +5,12 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 
 $output = 'Accesso Negato';
 
-if (strlen($_GET['name']) > 3) {
-  $output = 'Accesso Riuscito';
-} elseif (strpos($_GET['mail'], '.') || strpos($_GET['mail'], '@')) {
-  $output = 'Accesso Riuscito';
-} elseif (is_numeric($_GET['age'])) {
+if (
+  strlen($_GET['name']) > 3
+  && strpos($_GET['mail'], '.')
+  && strpos($_GET['mail'], '@')
+  && is_numeric($_GET['age'])
+) {
   $output = 'Accesso Riuscito';
 }
 
