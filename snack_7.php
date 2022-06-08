@@ -9,7 +9,7 @@ $alunni = [
     'cognome' => 'Rossi',
     'voti' => [
       'matematica' => 6,
-      'italiano' => 7,
+      'italiano' => 10,
       'geografia' => 7
     ]
   ],
@@ -17,8 +17,8 @@ $alunni = [
     'nome' => 'Paolo',
     'cognome' => 'Verdi',
     'voti' => [
-      'matematica' => 8,
-      'italiano' => 8.5,
+      'matematica' => 5,
+      'italiano' => 4,
       'geografia' => 5
     ]
   ],
@@ -48,29 +48,21 @@ $alunni = [
 
 <body>
 
-  <style>
-  ul {
-    list-style: none;
-  }
-  </style>
-
-
-  <?php
-
-  for ($i = 0; $i < count($alunni); $i++) : ?>
-
 
   <ul>
+    <?php
+
+    for ($i = 0; $i < count($alunni); $i++) : ?>
+
     <li>
       <?php print_r($alunni[$i]['nome'] . ' ' . $alunni[$i]['cognome']) ?>
 
       <i>Media Voto: ---> </i>
-      <?php print_r(round($alunni[$i]['voti']['matematica'] + $alunni[$i]['voti']['italiano'] + $alunni[$i]['voti']['geografia'] / 3)); ?>
+      <?php print_r(round($alunni[$i]['voti']['matematica'] / count($alunni[$i]['voti']) + $alunni[$i]['voti']['italiano'] / count($alunni[$i]['voti']) + $alunni[$i]['voti']['geografia'] / count($alunni[$i]['voti']))); ?>
     <li>
+
+      <?php endfor ?>
   </ul>
-
-
-  <?php endfor ?>
 
 
 
